@@ -16,5 +16,5 @@ WORKDIR /home/user/
 ENV HOME="/home/user" TERM="xterm" USER="user" SHELL="/bin/bash" EDITOR="vim" LANG="en_US.UTF-8" LC_ALL="C"
 RUN echo 'root:password' | chpasswd
 RUN wget -O /root/server.jar https://launcher.mojang.com/v1/objects/5fafba3f58c40dc51b5c3ca72a98f62dfdae1db7/server.jar
-RUN apt install openjdk-8-jdk:i386
+RUN apt install openjdk-8-jdk -y
 CMD [ "/bin/bash" ]
