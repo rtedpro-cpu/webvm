@@ -16,7 +16,7 @@ WORKDIR /home/user/
 ENV HOME="/home/user" TERM="xterm" USER="user" SHELL="/bin/bash" EDITOR="vim" LANG="en_US.UTF-8" LC_ALL="C"
 RUN echo 'root:password' | chpasswd
 RUN wget -O /root/server.jar https://launcher.mojang.com/v1/objects/5fafba3f58c40dc51b5c3ca72a98f62dfdae1db7/server.jar
-RUN apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main'
-RUN apt update
-RUN apt-get install openjdk-8-jdk -y
+RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+RUN apt-get update && apt-get install adoptopenjdk-8-hotspot -y
 CMD [ "/bin/bash" ]
