@@ -1,6 +1,5 @@
 FROM docker.io/i386/alpine:3.17
 RUN echo -e "\n@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
 RUN apk update && apk add alpine-base udev-init-scripts udev-init-scripts-openrc eudev xf86-input-libinput font-dejavu xrandr xev bash
 RUN adduser -D -s /bin/bash user && echo 'user:password' | chpasswd
 RUN echo 'root:password' | chpasswd
